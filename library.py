@@ -1,38 +1,39 @@
 class Library:
-    def __init__(self, name, post_code, square, Phone_Number, Monday_Open, Monday_Close, Tuesday_Open, Tuesday_Close,
-                 Wednesday_Open, Wednesday_Close, Thursday_Open, Thursday_Close, Friday_Open, Friday_Close,
-                 Saturday_Open, Saturday_Close, Sunday_Open, Sunday_Close):
+    def __init__(self, name, post_code, square, phone_number):
         self.name = name
         self.post_code = post_code
         self.square = square
-        self.phone_number = Phone_Number
+        self.phone_number = phone_number
 
-        self.Monday_Open = Monday_Open
-        self.Monday_Close = Monday_Close
+        # self.Monday_Open = Monday_Open
+        # self.Monday_Close = Monday_Close
 
-        self.Tuesday_Open = Tuesday_Open
-        self.Tuesday_Close = Tuesday_Close
+        # self.Tuesday_Open = Tuesday_Open
+        # self.Tuesday_Close = Tuesday_Close
 
-        self.Wednesday_Open = Wednesday_Open
-        self.Wednesday_Close = Wednesday_Close
+        # self.Wednesday_Open = Wednesday_Open
+        # self.Wednesday_Close = Wednesday_Close
 
-        self.Thursday_Open = Thursday_Open
-        self.Thursday_Close = Thursday_Close
+        # self.Thursday_Open = Thursday_Open
+        # self.Thursday_Close = Thursday_Close
 
-        self.Friday_Open = Friday_Open
-        self.Friday_Close = Friday_Close
+        # self.Friday_Open = Friday_Open
+        # self.Friday_Close = Friday_Close
 
-        self.Saturday_Open = Saturday_Open
-        self.Saturday_Close = Saturday_Close
+        # self.Saturday_Open = Saturday_Open{:<30} {:<20} {:<20} {:<20}
+        # self.Saturday_Close = Saturday_Close
 
-        self.Sunday_Open = Sunday_Open
-        self.Sunday_Close = Sunday_Close
-
+        # self.Sunday_Open = Sunday_Open
+        # self.Sunday_Close = Sunday_Close
+    
     def __str__(self):
-        return f"{self.name} {self.post_code} {self.square} {self.phone_number} {self.Monday_Open}-{self.Monday_Close}" \
-               f"{self.Tuesday_Open}-{self.Tuesday_Close} {self.Wednesday_Open}-{self.Wednesday_Close} " \
-               f"{self.Tuesday_Open}-{self.Thursday_Close} {self.Friday_Open}-{self.Friday_Close} " \
-               f"{self.Saturday_Open}-{self.Saturday_Close} {self.Sunday_Open}-{self.Sunday_Close}"
+        return "{:<30} {:<20} {:<20} {:<20}".format(self.name, self.post_code, self.square, self.phone_number)
+
+    # def __str__(self):
+    #     return f"{self.name} {self.post_code} {self.square} {self.phone_number} {self.Monday_Open}-{self.Monday_Close}" \
+    #            f"{self.Tuesday_Open}-{self.Tuesday_Close} {self.Wednesday_Open}-{self.Wednesday_Close} " \
+    #            f"{self.Tuesday_Open}-{self.Thursday_Close} {self.Friday_Open}-{self.Friday_Close} " \
+    #            f"{self.Saturday_Open}-{self.Saturday_Close} {self.Sunday_Open}-{self.Sunday_Close}"
 
     def formatlibraryInfo(self):
         return f"{self.name},{self.post_code},{self.square},{self.phone_number},{self.Monday_Open},{self.Monday_Close}," \
