@@ -30,12 +30,11 @@ def sort_library_by_name_asc():
      libraries.sort(key=lambda x: x.name, reverse = True)
 
 
-# find the library you want to find
-def find_a_library():
-    library_name = input("Please enter the name of the library that you want to find information on:\n")
+# find all libraries that starts with letter "A"
+def find_a_libraries():
     for library in libraries:
-        if library.name == library_name:
-            print('We have found that library, here is all the relevant information:\n', library)
+        if library.name.startswith("A"):
+            print(library)
 
 def format_libraries():
     for library in libraries:
@@ -66,7 +65,7 @@ def find_nearest_library():
 
 
 load_csv()
-sort_library_by_name_asc()
+# sort_library_by_name_asc()
 # print()
 # format_libraries()
 # find_a_libraries()
@@ -80,5 +79,3 @@ find_nearest_library()
 sorted_matched_libraries = sorted(nearby_libraries.items(), key =sorted_function, reverse = True)
 # print('sorted_matched_libraries', sorted_matched_libraries)
 print("The closest library is", sorted_matched_libraries[0][1].name)
-
-
