@@ -34,7 +34,7 @@ class Library:
                f"{self.Tuesday_Open}-{self.Thursday_Close} {self.Friday_Open}-{self.Friday_Close} " \
                f"{self.Saturday_Open}-{self.Saturday_Close} {self.Sunday_Open}-{self.Sunday_Close}"
 
-    def formatPatientInfo(self):
+    def formatlibraryInfo(self):
         return f"{self.name},{self.post_code},{self.square},{self.phone_number},{self.Monday_Open},{self.Monday_Close}," \
                f"{self.Tuesday_Open},{self.Tuesday_Close},{self.Wednesday_Open},{self.Wednesday_Close}, " \
                f"{self.Tuesday_Open},{self.Thursday_Close},{self.Friday_Open},{self.Friday_Close}, " \
@@ -143,5 +143,3 @@ class Library:
 
     def set_Sunday_Close(self, Sunday_Close):
         self.Sunday_Close = Sunday_Close
-
-

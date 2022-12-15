@@ -9,19 +9,12 @@ def load_csv():
     with open("Calgary_Public_Library_Locations_and_Hours.csv") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
-        
-# [W.R. Castell Central Library,T2G 2M2,177532,.....]
-# [[W.R. Castell Central Library,T2G 2M2,177532,.....]]
         for row in csv_reader:
-            if line_count == 0:
-                print(f'Column names are {", ".join(row)}')
-
-            else:
+            if line_count != 0:
                 library = Library(row[0], row[1], row[2])
                 libraries.append(library)
 
             line_count += 1
-    print(f'Processed {line_count} lines.')
 
 
 

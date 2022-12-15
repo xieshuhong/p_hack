@@ -13,15 +13,12 @@ def load_csv():
 # [W.R. Castell Central Library,T2G 2M2,177532,.....]
 # [[W.R. Castell Central Library,T2G 2M2,177532,.....]]
         for row in csv_reader:
-            if line_count == 0:
-                print(f'Column names are {", ".join(row)}')
-
-            else:
+            if line_count != 0:
                 library = Library(row[0], row[1], row[2])
                 libraries.append(library)
 
             line_count += 1
-    print(f'Processed {line_count} lines.')
+    # print(f'Processed {line_count} lines.')
 
 
 
@@ -60,6 +57,7 @@ def find_nearest_library():
         matched_letters = find_nearest(post_code, library)
         library.matched_letters = matched_letters
         nearby_libraries[i] = library
+    
 
 
 
@@ -79,3 +77,7 @@ find_nearest_library()
 sorted_matched_libraries = sorted(nearby_libraries.items(), key =sorted_function, reverse = True)
 # print('sorted_matched_libraries', sorted_matched_libraries)
 print("The closest library is", sorted_matched_libraries[0][1].name)
+
+
+
+
