@@ -1,12 +1,16 @@
 import csv
-import copy
 from library import Library
-# from rich.progress import track
-# import time
+from rich.progress import track
+from rich.console import Console
+import time
 
-# for counter in track(range(5), description="Completion..."):
-#    print(f"Loading data")
-#    time.sleep(0.5)
+# create a console object for stylised prints through rich module
+console = Console()
+
+
+for counter in track(range(5), description="Completion."):
+    print(f"Loading Library Data...")
+    time.sleep(0.5)
 
 libraries = []
 title_info = '\n{:<30} {:<20} {:<20} {:<20}\n'.format('Library', 'Postal Code', 'Square Feet', 'Phone Number')
@@ -37,13 +41,16 @@ def display_and_sort():
 # find the library you want to find
 def find_a_library():
     library_bool = False
-    library_name = input("Please enter the name of the library that you want to find information on:\n")
+    console.print("Please enter the name of the library that you want to find information on:", style="bold green")
+    library_name = input("")
     for library in libraries:
         if library.name == library_name:
             library_bool = True
-            print(f'\nWe have found that library, here is all the relevant information:\n{title_info}{library}\n')
+            console.print(f'\nWe have found that library, here is all the relevant information:\n', style = "bold green")
+            print(f'{title_info}{library}\n')
+            break
     if not library_bool:
-            print('\nSorry, please enter valid library name!')
+            console.print('\nSorry, please enter valid library name!', style= "bold red")
 
 
 
@@ -61,14 +68,15 @@ nearby_libraries = {}
 #  find the nearest library the users wants
 def find_nearest_library():
     # reverse it back first
-        post_code = input('\nplease input your postal code(i.e. T2W 4N1) so we find the nearest library for you:\n')
+        console.print('\nplease input your postal code(i.e. T2W 4N1) so we find the nearest library for you:\n', style="bold green")
+        post_code = input("")
         for i, library in enumerate(libraries):
             try:
                 matched_letters = find_nearest(post_code, library)
                 library.matched_letters = matched_letters
                 nearby_libraries[i] = library
             except:
-                print('\nPlease input the right postal code!')
+                console.print('\nPlease input the right postal code!', style="bold red")
 
 
 
@@ -77,7 +85,6 @@ load_csv()
 # display and sort libraries by their names in ascending order
 display_and_sort()
 
-# find_a_libraries()
 
 def sorted_function(x):
      return x[1].matched_letters
